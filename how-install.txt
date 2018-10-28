@@ -1,0 +1,36 @@
+
+(1) hack the systemd
+======================
+
+apt install mingetty
+
+Use systemctl edit getty@tty1 or manually edit /etc/systemd/system/getty@tty1.service.d/override.conf and run systemctl deamon-reload.
+
+[Service]
+ExecStart=
+ExecStart=-/sbin/mingetty --autologin ubuntu --noclear %I
+
+
+(2) Compile box 
+======================
+   tcc -lncurses box.c -o box
+   also works with gcc, but slower.
+
+   /usr/local/bin/box 
+   is your menu.
+
+
+(3) Append .bashrc
+======================
+
+
+if [ "$(tty)" = "/dev/tty1" ] ; then 
+   echo tty
+  box 
+
+ else 
+  echo no tty
+fi 
+
+
+
