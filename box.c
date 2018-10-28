@@ -105,8 +105,15 @@ int main()
 
   char cwd[PATH_MAX];
 
+
+  system( " setterm -blank 0 -powerdown 0  ; xset s off ;   xset -dpms ;  xset s noblank  ; setterm -blank 0  " );
+
+  system( " export DISPLAY=:0 ; xset s off ;  xset -dpms ;  xset s noblank  ; setterm -blank 0  " );
+  system( " export DISPLAY=:1 ; xset s off ;  xset -dpms ;  xset s noblank  ; setterm -blank 0  " );
+
   chdir( getcwd( cwd, PATH_MAX ) );
   system( " setfont  /usr/share/consolefonts/Lat15-TerminusBold32x16.psf.gz    " );
+
 
   initscr();	
   getmaxyx( stdscr, rows, cols);
