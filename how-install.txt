@@ -2,13 +2,14 @@
 (1) hack the systemd
 ======================
 
-apt install mingetty
+apt-get update
+apt-get install mingetty
 
 Use systemctl edit getty@tty1 or manually edit /etc/systemd/system/getty@tty1.service.d/override.conf and run systemctl deamon-reload.
 
 [Service]
 ExecStart=
-ExecStart=-/sbin/mingetty --autologin ubuntu --noclear %I
+ExecStart=-/sbin/mingetty --autologin pi --noclear %I
 
 
 (2) Compile box 
